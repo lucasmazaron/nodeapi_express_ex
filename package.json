@@ -2,9 +2,11 @@
   "name": "express_ex",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon",
+    "prod": "pm2 start server.js --name express_ex",
+    "prodstop": "pm2 stop express_ex"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +17,10 @@
     "lodash": "^4.17.15",
     "mongoose": "^5.8.11",
     "mongoose-paginate": "^5.0.3",
+    "pm2": "^4.2.3",
     "require-dir": "^1.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
