@@ -2,7 +2,9 @@ const Product = require('../models/productModel')
 
 module.exports = {
     async listAll(req, res) {
-        return res.json(await Product.find(req.body))
+        const { page = 1 } = req.query;
+
+        return res.json(await Product.paginate(req.body, {page, limit: 10}))
     },
 
     async getById(req, res){
@@ -18,6 +20,7 @@ module.exports = {
     },
 
     async deleteById(req, res){
-        
+        await Product.findByIdAndDelete(req.params.id)
+        return res.send()
     },
 }
